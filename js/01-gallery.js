@@ -1,18 +1,8 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
 console.log(galleryItems);
 
 
-// Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
-// Реалізація делегування на ul.gallery і отримання url великого зображення.
-// Підключення скрипту і стилів бібліотеки модального вікна basicLightbox. Використовуй CDN сервіс jsdelivr і додай у проект посилання на мініфіковані (.min) файли бібліотеки.
-// Відкриття модального вікна по кліку на елементі галереї. Для цього ознайомся з документацією і прикладами.
-// Заміна значення атрибута src елемента <img> в модальному вікні перед відкриттям. Використовуй готову розмітку модального вікна із зображенням з прикладів бібліотеки basicLightbox.
-
-
-// 1. Створити ul та li> img відповідно до елементів масиву
-// 2. Задати стилі
 const galleryList = document.querySelector('.gallery');
 const galleryItemMurkup = createGalleryItemsMarkup (galleryItems);
 
@@ -37,5 +27,23 @@ function createGalleryItemsMarkup (galleryItems) {
         `;
     }).join('')
     
-    console.log(murkup[0])
+}
+
+galleryList.addEventListener('click', createModalWindom);
+
+function createModalWindom (event) {
+    event.preventDefault();
+    if (!event.target.classList.contains('gallery__image')) {
+        return
+    }
+    event.target.src = event.target.dataset.source;
+    createImglightBox(event.target.src)
+}
+
+function createImglightBox (image) {
+    const instance = basicLightbox.create(`
+    <img src=${image} width="800" height="600">
+    `)
+
+    instance.show();
 }
