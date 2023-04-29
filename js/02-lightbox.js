@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
 const galleryList = document.querySelector('.gallery');
 const galleryItemMurkup = createGalleryItemsMarkup (galleryItems);
@@ -10,7 +10,7 @@ const galleryItemMurkup = createGalleryItemsMarkup (galleryItems);
 
 galleryList.insertAdjacentHTML('beforeend', galleryItemMurkup)
 
-console.log(createGalleryItemsMarkup (galleryItems));
+// console.log(createGalleryItemsMarkup (galleryItems));
 
 function createGalleryItemsMarkup (galleryItems) {
     return galleryItems.map(({preview, original, description}) => {
