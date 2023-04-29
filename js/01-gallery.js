@@ -8,8 +8,7 @@ const galleryItemMurkup = createGalleryItemsMarkup (galleryItems);
 
 galleryList.insertAdjacentHTML('beforeend', galleryItemMurkup)
 
-
-console.log(createGalleryItemsMarkup (galleryItems));
+// console.log(createGalleryItemsMarkup (galleryItems));
 
 function createGalleryItemsMarkup (galleryItems) {
     return galleryItems.map(({preview, original, description}) => {
